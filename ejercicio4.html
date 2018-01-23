@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="title"> ¡¡¡ La bomba !!! </h1>
+    <h2 id="timer">15</h2>
+    <script>
+        var timer_tag = document.getElementById('timer');
+        var timer = timer_tag.innerHTML;
+        timer = parseInt(timer);
+
+        var clock = setInterval(countdown, 1000);
+
+  function countdown(){
+          timer = timer - 1
+          timer_tag.innerHTML = timer
+     if (timer == 0){
+       clearInterval(clock);
+   document.getElementById('title').innerHTML = "BOOM!";
+   document.body.style.backgroundColor = "red";
+   }
+  };
+    </script>
+  </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+</head>
+<body>
+    <button id="botoncito" onclick="sort()"> Clasificar Arreglo </button>
+    <ul id="par">
+        <h3>Pares</h3>
+    </ul>
+    <ul id="impar">
+        <h3>Impares</h3>
+    </ul>
+    <ul id="string">
+        <h3>Strings</h3>
+    </ul>
+    <script>
+      var arr = [1,'dos','tres',4,5,6,'siete',8,9,'diez'];
+      var parent_par = document.getElementById("par");
+      var parent_impar = document.getElementById("impar");
+      var parent_string = document.getElementById("string");
+
+      function sort(){
+        arr.map(function(x){
+          var doc_element = document.createElement("li");
+          node = document.createTextNode(x);
+          doc_element.appendChild(node);
+
+          if (typeof x == 'string') {
+            parent_string.appendChild(doc_element);
+          } else if (x%2 == 0) {
+              parent_par.appendChild(doc_element);
+          } else {
+              parent_impar.appendChild(doc_element);
+          }
+        })
+
+        var botoncito = document.getElementById("botoncito").setAttribute("disabled", "disabled")
+            botoncito
+      }
+    </script>
+</body>
+</html>
