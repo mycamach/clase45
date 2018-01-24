@@ -80,25 +80,36 @@
     }];
 
       var parent_todo = document.getElementById("todo");
-      var parent_done = document.getElementById("done");
+    var parent_done = document.getElementById("done");
+
+    function generarArray(){
 
       asdf.map(function(x){
+
         var doc_element = document.createElement("li");
-          node = document.createTextNode(x.title);
-          doc_element.appendChild(node);
+        doc_element.setAttribute("id", x.id);
+        doc_element.setAttribute("onclick", "completeTask("+x.id+")");
+        node = document.createTextNode(x.title);
+        doc_element.appendChild(node);
 
         if (x.completed) {
          parent_done.appendChild(doc_element);
         } else {
          parent_todo.appendChild(doc_element);
         }
-        function completeTask(id){
 
-        }
+      });
 
-      })
+    }
 
+    function completeTask(idLista){
+      asdf[idLista-1].completed = true;
+      parent_todo.innerHTML = '<h3>To Do:</h3>';
+      parent_done.innerHTML = '<h3>Done:</h3>';
+      generarArray();
+    }
 
+    generarArray();
 
 </script>
 
